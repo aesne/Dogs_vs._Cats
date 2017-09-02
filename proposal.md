@@ -33,13 +33,13 @@ aesne
 
 采用对数损失函数来衡量模型表现：
 
-![](https://latex.codecogs.com/gif.latex?LogLoss=-\frac{1}{n}\sum_{i=1}^n{[y_i\log(\hat{y_i})&plus;(1-y_i)\log(1-\hat{y_i})]})
+![](./img/loss_function.gif)
 
 其中，
-- ![](https://latex.codecogs.com/gif.latex?n)为测试集中的图片数量
-- ![](https://latex.codecogs.com/gif.latex?\hat{y_i})为预测图片内容为狗的概率
-- ![](https://latex.codecogs.com/gif.latex?y_i), 图片内容如果是狗值为1, 如果是猫则值为0
-- ![](https://latex.codecogs.com/gif.latex?\log())为自然(底为![](https://latex.codecogs.com/gif.latex?e)的)对数
+- ![](./img/n.gif)为测试集中的图片数量
+- ![](./img/y_hat.gif)为预测图片内容为狗的概率
+- ![](./img/y_i.gif), 图片内容如果是狗值为1, 如果是猫则值为0
+- ![](./img/log.gif)为自然(底为![](./img/e.gif)的)对数
 
 对数损失函数值越小越好。
 
@@ -63,7 +63,7 @@ aesne
   - 采用更多层的卷积
   
 * [GoogLeNet](https://arxiv.org/abs/1409.4842)
-  - 引入Inception，$1*1$卷积核用于降维，多个卷积核形成的网络作为整体网络中的一层
+  - 引入Inception，![](./img/1.gif)卷积核用于降维，多个卷积核形成的网络作为整体网络中的一层
   
 * [ResNet](https://arxiv.org/abs/1512.03385)
   - 引入残差网络
