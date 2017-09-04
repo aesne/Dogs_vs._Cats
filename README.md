@@ -7,7 +7,6 @@
 * `Dogs_vs._Cats.html` 项目代码及文档
 * `proposal.pdf` 开题报告
 * `report.pdf` 项目报告
-* `model.zip` 解压后得到 `model.h5`, 本项目的模型
 
 本项目使用 Python 在 Jupyter Notebook 环境下开发，并用到了如下的库：
 
