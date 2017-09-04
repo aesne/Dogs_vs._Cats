@@ -18,7 +18,7 @@ import cv2
 from matplotlib import pyplot
 import numpy
 from keras.models import Model
-from keras.layers import Input, Dense, GlobalAveragePooling2D
+from keras.layers import Dense, GlobalAveragePooling2D
 from keras.applications.xception import Xception
 from IPython.display import SVG
 from keras.utils.vis_utils import model_to_dot
@@ -33,23 +33,21 @@ from keras.callbacks import EarlyStopping
 在 AWS p2.xlarge 实例中（输出层微调）运行结果如下：
 
 ```
-Train on 20000 samples, validate on 5000 samples
+Train on 15000 samples, validate on 5000 samples
 Epoch 1/10
-20000/20000 [==============================] - 99s - loss: 0.3957 - acc: 0.8296 - val_loss: 0.5245 - val_acc: 0.7970
+15000/15000 [==============================] - 332s - loss: 0.1624 - acc: 0.9503 - val_loss: 0.8713 - val_acc: 0.7998
 Epoch 2/10
-20000/20000 [==============================] - 99s - loss: 0.2875 - acc: 0.8762 - val_loss: 0.6400 - val_acc: 0.7598
+15000/15000 [==============================] - 334s - loss: 0.0673 - acc: 0.9759 - val_loss: 1.1316 - val_acc: 0.7266
 Epoch 3/10
-20000/20000 [==============================] - 98s - loss: 0.2340 - acc: 0.8972 - val_loss: 0.3772 - val_acc: 0.8406
+15000/15000 [==============================] - 334s - loss: 0.0641 - acc: 0.9761 - val_loss: 0.0521 - val_acc: 0.9800
 Epoch 4/10
-20000/20000 [==============================] - 98s - loss: 0.1786 - acc: 0.9271 - val_loss: 0.3049 - val_acc: 0.8698
+15000/15000 [==============================] - 334s - loss: 0.0500 - acc: 0.9805 - val_loss: 0.0646 - val_acc: 0.9758
 Epoch 5/10
-20000/20000 [==============================] - 99s - loss: 0.1345 - acc: 0.9473 - val_loss: 0.4386 - val_acc: 0.8378
+15000/15000 [==============================] - 334s - loss: 0.0426 - acc: 0.9833 - val_loss: 0.0731 - val_acc: 0.9740
 Epoch 6/10
-20000/20000 [==============================] - 99s - loss: 0.0973 - acc: 0.9642 - val_loss: 0.3451 - val_acc: 0.8762
+15000/15000 [==============================] - 334s - loss: 0.0389 - acc: 0.9869 - val_loss: 0.0786 - val_acc: 0.9704
 Epoch 7/10
-20000/20000 [==============================] - 98s - loss: 0.0693 - acc: 0.9762 - val_loss: 0.4408 - val_acc: 0.8596
-Epoch 8/10
-20000/20000 [==============================] - 98s - loss: 0.0509 - acc: 0.9845 - val_loss: 0.4020 - val_acc: 0.8700
+15000/15000 [==============================] - 334s - loss: 0.0328 - acc: 0.9877 - val_loss: 0.0713 - val_acc: 0.9758
 ```
 
 ![](./img/loss.png)
