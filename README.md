@@ -2,12 +2,6 @@
 
 [A computation](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition) from Kaggle and [a graduation project](https://github.com/nd009/capstone/tree/master/dog_vs_cat) for machine learning engineer nanodegree on Udacity 
 
-在 `./output/` 文件夹中为该项目的输出文件，其中：
-
-* `Dogs_vs._Cats.html` 项目代码及文档
-* `proposal.pdf` 开题报告
-* `report.pdf` 项目报告
-
 本项目使用 Python 在 Jupyter Notebook 环境下开发，并用到了如下的库：
 
 ```
