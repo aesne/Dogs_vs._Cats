@@ -13,7 +13,9 @@ aesne
 
 该项目的主要问题是构建一个深度学习模型来识别一张图片里是猫还是狗。
 
-该问题属于机器视觉领域中的识别问题。目前比较好的解决方法是根据生物视觉原理的卷积神经网络方法。训练该模型的数据可以从 [Kaggle](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) 中获得。
+该问题属于机器视觉领域中的识别问题。目前比较好的解决方法是根据生物视觉原理的卷积神经网络方法。1998年 LeNet 模型最早引入了卷积神经网络的方法；2012年 AlexNet 使用ReLU函数作为激活函数，以及 dropout,  LRN, pooling 和GPU并行计算等技术显著提高了模型的准确度和训练时间；2014年 VGGNet 使用小卷积核，更多层的卷积引入了“深度”的概念；同时2014年 GoogLeNet 引入Inception, 多个卷积核形成的网络作为整体网络中的一层；2015年 ResNet 引入残差网络；2016年 Xception 集成了以上模型的优点。
+
+训练该模型的数据可以从 [Kaggle](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) 中获得。
 
 #### 问题陈述
 
@@ -56,6 +58,14 @@ aesne
 
 数据集在 `./train/` 中，为大小不一的彩色图片。label 以文件名的形式给出：LABEL.ID.jpg。其中猫与狗的图片各有12500张。
 
+![](./img/sample.png)
+
+但是，数据集中并非全部为猫或者是狗的图片，比如说存在以下异常值：
+
+![](./img/exc.png)
+
+因此，在训练模型的时候，要防止过拟合。
+
 #### 探索性可视化
 
 以下是数据集中的图片高、宽分布：
@@ -68,9 +78,17 @@ aesne
 
 本项目采用了2016年10月刚提出的模型 [Xception ](https://arxiv.org/abs/1610.02357). 该模型在 Inception 的基础上引入了 depthwise separable convolution, 对 channel 进行细化处理，使得该模型在参数数量不增加的条件下达到更好的学习效果。
 
+* 卷积层。卷积神经网络中每层卷积层由若干卷积单元组成，每个卷积单元的参数都是通过反向传播算法优化得到的。卷积运算的目的是提取输入的不同特征，第一层卷积层可能只能提取一些低级的特征如边缘、线条和角等层级，更多层的网络能从低级特征中迭代提取更复杂的特征。与全连接层相比，卷积神经网络需要估计的参数更少，使之成为一种颇具吸引力的深度学习结构。
+
+* 使用Relu 激活函数而不是 sigmoid 的原因是它具有梯度不饱和性，而且能加快计算速度。
+
+* Softmax函数实际上是有限项离散概率分布的梯度对数归一化。因此，Softmax函数在包括 多项逻辑回归，多项线性判别分析，朴素贝叶斯分类器和人工神经网络等的多种基于概率的多分类问题方法中都有着广泛应用。
+
+* Xception创新地使用了一种Inception结构，即首先1x1卷积增加通道数，之后在对每个通道进行3x3的卷积；且每步操作后，一般会使用Relu激活函数。
+
 #### 基准模型
 
-目前在 Kaggle 该挑战的[排行榜](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/leaderboard)中，最好的损失函数值为0.03302. 
+目前在 Kaggle 该挑战的[排行榜](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/leaderboard)中，排名前30%的损失函数值需小于排名/总数394/1314的0.09689。
 
 ### III. 方法
 
