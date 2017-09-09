@@ -5,3 +5,4 @@ train
 train.zip
 sampleSubmission.csv
 model.h5
+train_gen
